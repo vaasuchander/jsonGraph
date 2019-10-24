@@ -1,0 +1,43 @@
+{
+	"tasks": {
+
+		"1": {
+			"name": "Task 1"
+		},
+		"2": {
+			"name": "Task 2",
+			"predecessor": {
+				"$ref": "tasks",
+				"$id": "1"
+			}
+		}
+	},
+
+	"constraints": {
+		"finish-to-start": {
+			"nodes": [{
+				"name": "Execution Node 1",
+				"$ref": "tasks",
+				"$id": "1"
+			}, {
+				"name": "Execution Node 2",
+				"$ref": "tasks",
+				"$id": "2"
+			}],
+			"edges": [{
+				"type": "directed",
+				"from": {
+					"name": "Execution Node 1",
+					"$ref": "tasks",
+					"$id": "1"
+				},
+				"to": {
+					"name": "Execution Node 2",
+					"$ref": "tasks",
+					"$id": "2"
+				}
+			}]
+		}
+	}
+
+}

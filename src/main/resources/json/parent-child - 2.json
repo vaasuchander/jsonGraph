@@ -1,0 +1,112 @@
+{
+	"tasks": {
+
+		"1": {
+			"name": "Task 1"
+		},
+		"2": {
+			"name": "Task 2",
+			"parent": {
+				"$ref": "tasks",
+				"$id": "1"
+			}
+		},
+		"3": {
+			"name": "Task 3",
+			"parent": {
+				"$ref": "tasks",
+				"$id": "1"
+			}
+		}
+	},
+	
+	"actions" : {
+		
+		"1_S" : {
+		
+			"name"  : "No Action Node"
+		},
+		
+		"1_E" : {
+		
+			"name"  : "No Action Node"
+		}
+		
+	},
+
+	"constraints": {
+		"parent-child": {
+			"nodes": [{
+				"name": "No Action Node",
+				"$ref": "actions",
+				"$id": "1_S"
+			}, {
+				"name": "Execution Node",
+				"$ref": "tasks",
+				"$id": "2"
+			},
+			{
+				"name": "Execution Node",
+				"$ref": "tasks",
+				"$id": "3"
+			},
+			 {
+				"name": "No Action Node",
+				"$ref": "actions",
+				"$id": "1_E"
+			}],
+			"edges": [{
+				"type": "directed",
+				"from": {
+					"name": "No Action Node",
+					"$ref": "actions",
+					"$id": "1_S"
+				},
+				"to": {
+					"name": "Execution Node",
+					"$ref": "tasks",
+					"$id": "2"
+				}
+			},{
+				"type": "directed",
+				"from": {
+					"name": "No Action Node",
+					"$ref": "actions",
+					"$id": "1_S"
+				},
+				"to": {
+					"name": "Execution Node",
+					"$ref": "tasks",
+					"$id": "3"
+				}
+			},
+			{
+				"type": "directed",
+				"from": {
+					"name": "Execution Node",
+					"$ref": "tasks",
+					"$id": "2"
+				},
+				"to": {
+					"name": "No Action Node",
+					"$ref": "actions",
+					"$id": "1_E"
+				}
+			},
+			{
+				"type": "directed",
+				"from": {
+					"name": "Execution Node",
+					"$ref": "tasks",
+					"$id": "3"
+				},
+				"to": {
+					"name": "No Action Node",
+					"$ref": "actions",
+					"$id": "1_E"
+				}
+			}]
+		}
+	}
+
+}

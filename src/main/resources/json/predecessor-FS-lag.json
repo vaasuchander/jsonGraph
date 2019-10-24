@@ -1,0 +1,69 @@
+{
+	"tasks":{
+
+		"1": {
+			"name": "Task 1"
+		},
+		"2": {
+			"name": "Task 2",
+			"predecessor": {
+				"$ref": "tasks",
+				"$id": "1"
+			}
+		}		
+	},
+	
+	"actions" : {
+		"1_D": {
+			"name": "delay Task",
+			"delay": 5
+		}
+		
+	},
+	
+	"constraints": {
+		"finish-to-start": {
+			"nodes": [{
+					"name": "Execution Node 1",
+					"$ref": "tasks",
+					"$id": "1"
+				}, {
+					"name": "Execution Node 2",
+					"$ref": "tasks",
+					"$id": "2"
+				},
+				{
+					"name": "Delay Node",
+					"$ref": "actions",
+					"$id": "1_D"
+				}
+			],
+			"edges": [{
+				"type": "directed",
+				"from": {
+					"name": "Execution Node 1",
+					"$ref": "tasks",
+					"$id": "1"
+				},
+				"to": {
+					"name": "Delay Node",
+					"$ref": "actions",
+					"$id": "1_D"
+				}
+			}, {
+				"type": "directed",
+				"from": {
+					"name": "Delay Node",
+					"$ref": "actions",
+					"$id": "1_D"
+				},
+				"to": {
+					"name": "Execution Node 2",
+					"$ref": "tasks",
+					"$id": "2"
+				}
+			}]
+		}
+	}
+
+}

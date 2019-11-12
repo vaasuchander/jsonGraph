@@ -3,8 +3,8 @@
  */
 package com.learning.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -29,8 +29,8 @@ public class PlayBook {
 
 	private boolean isDeleted;
 	
-	@OneToMany(mappedBy="PlayBookTask")
-	private List<PlayBookTask> playBookTasksList = new  ArrayList<>(); 
+	@OneToMany(mappedBy="playBook")
+	private Set<PlayBookTask> playBookTasksList = new  HashSet<>();
 
 	public String getId() {
 		return id;
@@ -72,11 +72,11 @@ public class PlayBook {
 		this.isDeleted = isDeleted;
 	}
 
-	public List<PlayBookTask> getPlayBookTasksList() {
+	public Set<PlayBookTask> getPlayBookTasksList() {
 		return playBookTasksList;
 	}
 
-	public void setPlayBookTasksList(List<PlayBookTask> playBookTasksList) {
+	public void setPlayBookTasksList(Set<PlayBookTask> playBookTasksList) {
 		this.playBookTasksList = playBookTasksList;
 	}
 

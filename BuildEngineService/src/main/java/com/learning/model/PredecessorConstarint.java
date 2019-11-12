@@ -20,7 +20,7 @@ public class PredecessorConstarint {
 
 	private int lag;
 
-	@OneToOne(mappedBy = "PredecessorConstarint")
+	@OneToOne(mappedBy = "predConstant")
 	private PlayBookTask playBookTask;
 	
 	public int getId() {

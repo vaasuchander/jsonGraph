@@ -1,11 +1,11 @@
-INSERT INTO TBL_TASKS (id,name,constraint_Type,parent_Id,predecessor_Id) VALUES
-  (1,'Task1','predecessor-FS-no-lag',0,0),
-  (2,'Task2','predecessor-FS-no-lag',1,0),
-  (3,'Task3','predecessor-FS-no-lag',0,1),
-  (4,'Task4','predecessor-FS-no-lag',0,0),
-  (5,'Task5','predecessor-FS-no-lag',0,0),
-  (6,'Task6','predecessor-FS-no-lag',2,0),
-  (7,'Task7','predecessor-FS-no-lag',2,0),
-  (8,'Task8','predecessor-FS-no-lag',2,0),
-  (9,'Task9','predecessor-FS-no-lag',0,3),
-  (10,'Task10','predecessor-FS-no-lag',0,4);
+INSERT INTO TBL_PLAYBOOK (id,name,description,isLocked,isDeleted) VALUES
+  (1,'playBook1','Parent and Child',FALSE,FALSE),
+  (2,'playBook2','Predecessors',FALSE,FALSE),
+  (3,'playBook3','Parent/Child with Predecessors',FALSE,FALSE),
+  (4,'playBook4','PlayBook Locked',TRUE,FALSE),
+  (5,'playBook5','PlayBook Skipped Tasks',FALSE,FALSE),
+  (6,'playBook6','PlayBook Manual Tasks',FALSE,FALSE);
+  
+
+INSERT INTO TBL_PLAYBOOK_TASKS (id,name,description,isLocked,isDeleted) VALUES  
+	(1,'Task1',FALSE,FALSE,FALSE);

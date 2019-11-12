@@ -29,7 +29,7 @@ public class PlayBookTask {
 
 	private boolean isManual;
 
-	private LocalDateTime constnatDateTime;
+	private LocalDateTime constantDateTime;
 
 	private LocalDateTime actualStartDateandTime;
 
@@ -79,12 +79,12 @@ public class PlayBookTask {
 
 	private boolean isParent;
 
-	@ManyToOne
-	@JoinColumn(name = "id", nullable = false)
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "playBook_id", nullable = false)
 	private PlayBook playBook;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id", referencedColumnName = "id")
+	@JoinColumn(name = "predecessorConstarint_id")
 	private PredecessorConstarint predConstant;
 
 	public Long getId() {
@@ -117,14 +117,6 @@ public class PlayBookTask {
 
 	public void setManual(boolean isManual) {
 		this.isManual = isManual;
-	}
-
-	public LocalDateTime getConstnatDateTime() {
-		return constnatDateTime;
-	}
-
-	public void setConstnatDateTime(LocalDateTime constnatDateTime) {
-		this.constnatDateTime = constnatDateTime;
 	}
 
 	public LocalDateTime getActualStartDateandTime() {
@@ -319,38 +311,6 @@ public class PlayBookTask {
 		this.isParent = isParent;
 	}
 
-	@Override
-	public String toString() {
-		return "Task [id=" + id + ", name=" + name + ", isRepetable=" + isRepetable + ", isManual=" + isManual
-				+ ", constnatDateTime=" + constnatDateTime + ", actualStartDateandTime=" + actualStartDateandTime
-				+ ", actualEndDateandTime=" + actualEndDateandTime + ", memberName=" + memberName + ", ruleSetTagName="
-				+ ruleSetTagName + ", apiEnquiryDeployService=" + apiEnquiryDeployService
-				+ ", apiUndeployMaintainceService=" + apiUndeployMaintainceService + ", apiVersion=" + apiVersion
-				+ ", changemanPackage=" + changemanPackage + ", activityDescription=" + activityDescription
-				+ ", displayPoistion=" + displayPoistion + ", isDeleted=" + isDeleted + ", actualDuration="
-				+ actualDuration + ", plannedStartDate=" + plannedStartDate + ", plannedEndDate=" + plannedEndDate
-				+ ", plannedDuration=" + plannedDuration + ", isValidationRequired=" + isValidationRequired
-				+ ", sequenceNumber=" + sequenceNumber + ", executionContactMail=" + executionContactMail
-				+ ", uniqueId=" + uniqueId + ", aaasexecutionId=" + aaasexecutionId + ", executionNote=" + executionNote
-				+ ", manualActivityDescription=" + manualActivityDescription + ", isCritical=" + isCritical
-				+ ", isParent=" + isParent + ", getId()=" + getId() + ", getName()=" + getName() + ", isRepetable()="
-				+ isRepetable() + ", isManual()=" + isManual() + ", getConstnatDateTime()=" + getConstnatDateTime()
-				+ ", getActualStartDateandTime()=" + getActualStartDateandTime() + ", getActualEndDateandTime()="
-				+ getActualEndDateandTime() + ", getMemberName()=" + getMemberName() + ", getRuleSetTagName()="
-				+ getRuleSetTagName() + ", isApiEnquiryDeployService()=" + isApiEnquiryDeployService()
-				+ ", isApiUndeployMaintainceService()=" + isApiUndeployMaintainceService() + ", getApiVersion()="
-				+ getApiVersion() + ", getChangemanPackage()=" + getChangemanPackage() + ", getActivityDescription()="
-				+ getActivityDescription() + ", getDisplayPoistion()=" + getDisplayPoistion() + ", isDeleted()="
-				+ isDeleted() + ", getActualDuration()=" + getActualDuration() + ", getPlannedStartDate()="
-				+ getPlannedStartDate() + ", getPlannedEndDate()=" + getPlannedEndDate() + ", getPlannedDuration()="
-				+ getPlannedDuration() + ", isValidationRequired()=" + isValidationRequired() + ", getSequenceNumber()="
-				+ getSequenceNumber() + ", getExecutionContactMail()=" + getExecutionContactMail() + ", getUniqueId()="
-				+ getUniqueId() + ", getAaasexecutionId()=" + getAaasexecutionId() + ", getExecutionNote()="
-				+ getExecutionNote() + ", getManualActivityDescription()=" + getManualActivityDescription()
-				+ ", isCritical()=" + isCritical() + ", isParent()=" + isParent() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-	}
-
 	public PredecessorConstarint getPredConstant() {
 		return predConstant;
 	}
@@ -365,6 +325,14 @@ public class PlayBookTask {
 
 	public void setPlayBook(PlayBook playBook) {
 		this.playBook = playBook;
+	}
+
+	public LocalDateTime getConstantDateTime() {
+		return constantDateTime;
+	}
+
+	public void setConstantDateTime(LocalDateTime constantDateTime) {
+		this.constantDateTime = constantDateTime;
 	}
 
 }

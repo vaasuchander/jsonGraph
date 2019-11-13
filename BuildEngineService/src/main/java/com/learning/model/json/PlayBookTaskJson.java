@@ -1,26 +1,17 @@
 /**
  * 
  */
-package com.learning.model;
+package com.learning.model.json;
 
 import java.time.LocalDateTime;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 /**
  * @author vbejjanki
  *
  */
 
-@Entity
-public class PlayBookTask {
+public class PlayBookTaskJson {
 
-	@Id
 	private Long id;
 
 	private String name;
@@ -79,13 +70,9 @@ public class PlayBookTask {
 
 	private boolean isParent;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "playBook_id", nullable = false)
-	private PlayBook playBook;
+	private PlayBookJson playBook;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "predecessorConstarint_id")
-	private PredecessorConstarint predConstant;
+	private PredecessorConstarintJson predConstant;
 
 	public Long getId() {
 		return id;
@@ -311,19 +298,19 @@ public class PlayBookTask {
 		this.isParent = isParent;
 	}
 
-	public PredecessorConstarint getPredConstant() {
+	public PredecessorConstarintJson getPredConstant() {
 		return predConstant;
 	}
 
-	public void setPredConstant(PredecessorConstarint predConstant) {
+	public void setPredConstant(PredecessorConstarintJson predConstant) {
 		this.predConstant = predConstant;
 	}
 
-	public PlayBook getPlayBook() {
+	public PlayBookJson getPlayBook() {
 		return playBook;
 	}
 
-	public void setPlayBook(PlayBook playBook) {
+	public void setPlayBook(PlayBookJson playBook) {
 		this.playBook = playBook;
 	}
 
@@ -351,7 +338,7 @@ public class PlayBookTask {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PlayBookTask other = (PlayBookTask) obj;
+		PlayBookTaskJson other = (PlayBookTaskJson) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

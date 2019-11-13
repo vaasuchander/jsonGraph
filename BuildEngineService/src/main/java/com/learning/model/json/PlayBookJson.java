@@ -1,13 +1,11 @@
 /**
  * 
  */
-package com.learning.model;
+package com.learning.model.json;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
@@ -15,11 +13,9 @@ import javax.persistence.OneToMany;
  *
  */
 
-@Entity
-public class PlayBook {
+public class PlayBookJson {
 
-	@Id
-	private Long id;
+	private String id;
 
 	private String name;
 
@@ -30,13 +26,13 @@ public class PlayBook {
 	private boolean isDeleted;
 	
 	@OneToMany(mappedBy="playBook")
-	private Set<PlayBookTask> playBookTasksList = new  HashSet<>();
+	private Set<PlayBookTaskJson> playBookTasksList = new  HashSet<>();
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -72,11 +68,11 @@ public class PlayBook {
 		this.isDeleted = isDeleted;
 	}
 
-	public Set<PlayBookTask> getPlayBookTasksList() {
+	public Set<PlayBookTaskJson> getPlayBookTasksList() {
 		return playBookTasksList;
 	}
 
-	public void setPlayBookTasksList(Set<PlayBookTask> playBookTasksList) {
+	public void setPlayBookTasksList(Set<PlayBookTaskJson> playBookTasksList) {
 		this.playBookTasksList = playBookTasksList;
 	}
 

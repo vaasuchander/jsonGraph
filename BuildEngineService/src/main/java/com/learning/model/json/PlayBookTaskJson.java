@@ -44,7 +44,7 @@ public class PlayBookTaskJson {
 
 	private boolean isDeleted;
 
-	private int actualDuration;
+	private Long actualDuration;
 
 	private LocalDateTime plannedStartDate;
 
@@ -194,11 +194,11 @@ public class PlayBookTaskJson {
 		this.isDeleted = isDeleted;
 	}
 
-	public int getActualDuration() {
+	public Long getActualDuration() {
 		return actualDuration;
 	}
 
-	public void setActualDuration(int actualDuration) {
+	public void setActualDuration(Long actualDuration) {
 		this.actualDuration = actualDuration;
 	}
 

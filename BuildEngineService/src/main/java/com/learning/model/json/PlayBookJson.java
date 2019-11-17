@@ -6,8 +6,6 @@ package com.learning.model.json;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.OneToMany;
-
 /**
  * @author vbejjanki
  *
@@ -25,7 +23,6 @@ public class PlayBookJson {
 
 	private boolean isDeleted;
 	
-	@OneToMany(mappedBy="playBook")
 	private Set<PlayBookTaskJson> playBookTasksList = new  HashSet<>();
 
 	public String getId() {

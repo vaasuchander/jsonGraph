@@ -3,24 +3,19 @@
  */
 package com.learning.model.json;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 /**
  * @author vbejjanki
  *
  */
 
-@Entity
 public class PredecessorConstarintJson {
 
-	@Id
 	private int id;
 
 	private int lag;
 
-	@OneToOne(mappedBy = "predConstant")
 	private PlayBookTaskJson playBookTask;
 	
 	public int getId() {
@@ -37,6 +32,14 @@ public class PredecessorConstarintJson {
 
 	public void setLag(int lag) {
 		this.lag = lag;
+	}
+
+	public PlayBookTaskJson getPlayBookTask() {
+		return playBookTask;
+	}
+
+	public void setPlayBookTask(PlayBookTaskJson playBookTask) {
+		this.playBookTask = playBookTask;
 	}
 
 }

@@ -39,4 +39,12 @@ public class PredecessorConstarint {
 		this.lag = lag;
 	}
 
+	public PlayBookTask getPlayBookTask() {
+		return playBookTask;
+	}
+
+	public void setPlayBookTask(PlayBookTask playBookTask) {
+		this.playBookTask = playBookTask;
+	}
+
 }
